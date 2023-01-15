@@ -1,13 +1,13 @@
 # RaspiBackupper
 
-Questo script accetta in input una directory dove destinare il backup locale. Questa è necessario abbia le seguenti due sottocartelle:
+This script accepts as input a directory (absolute path) where to save the local backup. This directory must contain the following two subdirectories. :
 
-* **RPI4**
-  * Qui verrà salvata l'immagine di sistema (compressa)
-    è necessario aver installato sul proprio Pi la [seguente repository](https://github.com/tom-2015/imgclone)
+* **RPI**
+  * The (compressed) system image will be saved here
+    you must have installed on your Pi the [following repository](https://github.com/tom-2015/imgclone)
 * **PLEX**
-  * Qui invece verranno salvati i database e il file Preferences.xml di Plex (compressi). Nel mio caso mi interessano solo questi due elementi perché  preferisco riscaricare sul momento i metadati in caso di necessità. Evitando di sottoporli a backup risparmio tempo e spazio
+  * This is where the databases and the Plex Preferences.xml file (both compressed with 7z) will be saved. In my case I am only interested in these two things because I prefer to re-download the metadata on the spot if needed. By avoiding backing them up I save time and space
 
-A backup locale terminato lo script procederà a caricare su Google Drive, tramite Rclone, tutti i file ottenuti in una cartella remota chiamata *RaspiBackupper*. Assicurarsi dunque, per un corretto funzionamento, di avere un "*remote*" di Rclone (che punti a Google Drive) chiamato **GoogleDrive**
+When the local backup is complete, the script will proceed to upload to Google Drive, via Rclone, all the files obtained in a remote folder called *RaspiBackupper*. So make sure, for proper operation, that you have an Rclone "*remote*" (pointing to Google Drive) called **GoogleDrive**
 
-Per concludere, lo script cancella i backup locali più vecchi di 30 giorni. Cancella anche i backup remoti più vecchi di 60 giorni
+After this process the script deletes local backups older than 30 days. It also deletes remote backups older than 60 days
